@@ -54,7 +54,6 @@
 
 - (void)testFanyiNetworkRequest {
     //// “执行顺序：” 表示代码执行顺序
-    
     XCTestExpectation *expectation = [self expectationWithDescription:@"百度翻译 测试"];
     NSLog(@"执行顺序：1");
     ///请求参数
@@ -67,7 +66,6 @@
     [paramer setValue:@"f89f9594663708c1605f3d736d01d2d4"     forKey:@"sign"];
     ///开始请求
     [ViewController networkRequestWithAPI:@"https://api.fanyi.baidu.com/api/trans/vip/translate" requestMethod:@"POST" cachePolicy:NSURLRequestUseProtocolCachePolicy requestParamer:paramer Completion:^(NSDictionary * _Nullable result, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
         [expectation fulfill];///调用fulfill后 waitForExpectationsWithTimeout 会结束等待
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         XCTAssertTrue(httpResponse.statusCode==200, @"接口请求成功");///200表明http请求成功，请求失败会停在这里
@@ -79,11 +77,6 @@
     ///因为接口设置的是30秒超时，所以这里也设置30秒，意思就是这个线程最多等待30秒，
     [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
         NSLog(@"执行顺序：4");
-        if (error) {
-            ///测试代码无异常
-        } else {
-            ///测试代码有异常
-        }
     }];
 }
 

@@ -46,7 +46,7 @@
     
     
     XCUIElement *button1 = [[XCUIApplication alloc] init].buttons[@"1111"];
-    XCUIElement *button2 = [[XCUIApplication alloc] init].buttons[@"2222"];
+    XCUIElement *button2 = [[XCUIApplication alloc] init].buttons[@"2222"];///获取名字为2222的按钮
     XCUIElement *button3 = [[XCUIApplication alloc] init].buttons[@"3333"];
     XCUIElement *button4 = [[XCUIApplication alloc] init].buttons[@"4444"];
     XCUIElement *button5 = [[XCUIApplication alloc] init].buttons[@"5555"];
@@ -59,7 +59,7 @@
     XCTAssertTrue(button5.exists, @"'5555'按钮存在");///#值为true才能通过，为false会停在这里
     XCTAssertTrue(button6.exists, @"'6666'按钮存在");///#值为true才能通过，为false会停在这里
     
-    [button1 tap];
+    [button1 tap];///触发按钮的点击事件
     [button2 tap];
     [button3 tap];
     [button4 tap];
