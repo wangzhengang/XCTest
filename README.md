@@ -7,11 +7,12 @@ UITest的单元测试能最大限度的解放测试妹妹的双手，当然也�
 ## 二、创建工程： ##
 先创建个名字为 XCTest 的示例工程：
 ![这里写图片描述](http://img.blog.csdn.net/20171125144804085?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-这里要说明一下如果当初创建工程时未勾选上`Include Unit Tests` 和 `Include UI Test` 这两个复选框，可在项目工程根目录下手动创建 Tests 、UITests文件夹，如下图示例：
-![这里写图片描述](http://img.blog.csdn.net/20171125145138564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-这里的"XC"是工程名字，XCTests，UITests这两个文件夹下的Info.plist 是一模一样的，里面包含的 key value 和app里的 Info.plist 是一样的，即：
-![这里写图片描述](http://img.blog.csdn.net/20171125145607819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-![这里写图片描述](http://img.blog.csdn.net/20171125145636399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+这里要说明一下如果当初创建工程时未勾选上`Include Unit Tests` 和 `Include UI Test` 这两个复选框，可在项目工程targets目录下手动创建 Tests 、UITests目标，如下图示例：
+![这里写图片描述](http://img.blog.csdn.net/20171128160304181?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+然后选中“iOS”在搜索框里输入 test ，就能看到 “iOS UITesting Bundle”和 “iOS Unit Testing Bundle”两个图标了，选中后点击“Next”按钮后，就能在 TARGET 目录下看到我们创建的测试项了。
+
+![这里写图片描述](http://img.blog.csdn.net/20171128160328272?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ## 三、代码解释： ##
 **1、接下来看看具体代码：**
@@ -113,6 +114,11 @@ XCUIElement *button1 = [[XCUIApplication alloc] init].buttons[@"1111"];///获取
 ![这里写图片描述](http://img.blog.csdn.net/20171125152953328?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 表示某个测试方法测试失败，同时进程也会停在测试未通过的代码那。
 ![这里写图片描述](http://img.blog.csdn.net/20171125153105074?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+**4、录制代码：**
+XCode为了方便我们进行自动化单元测试真是费劲了心思，当我们把鼠标光标放到 `-(void)testXXX {....}` 这种测试方法里后，能在XCode的工具条上看到红色的按钮，这个红色的按钮就是用来录制代码。我们点击这个红色按钮后就会开始录制代码，我们在app里做任何操作都会在这里产生测试代码。
+![这里写图片描述](http://img.blog.csdn.net/20171128161649162?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+app越复杂，录制代码时对电脑性能消耗就越高，一般8个G内存的苹果电脑都很卡，甚至会让 XCode 崩溃掉。我觉得录制代码只适合帮助我们寻找app页面上某个按钮或者其他view，而关于这个按钮或view的其他测试代码，需要我们手动去写。
 
 ## 五、断言注释： ##
 
